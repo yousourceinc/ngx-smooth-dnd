@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild, ContentChildren, Input, Output, EventEmitter, NgZone, NgModule } from '@angular/core';
-import { constants, dropHandlers, smoothDnD } from 'smooth-dnd';
-export { smoothDnD, constants, dropHandlers } from 'smooth-dnd';
+import { constants, dropHandlers, smoothDnD } from '@yousource/smooth-dnd';
+export { smoothDnD, constants, dropHandlers } from '@yousource/smooth-dnd';
 
 var _a;
 var wrapperClass = constants.wrapperClass, animationClass = constants.animationClass;
@@ -105,6 +105,8 @@ var ContainerComponent = /** @class */ (function () {
             options.dropClass = this.dropClass;
         if (this.dropPlaceholder)
             options.dropPlaceholder = this.dropPlaceholder;
+        if (this.disableScrollOverlapDetection)
+            options.disableScrollOverlapDetection = this.disableScrollOverlapDetection;
         if (this.dragStart)
             options.onDragStart = function (info) {
                 _this.getNgZone(function () {
@@ -185,6 +187,7 @@ var ContainerComponent = /** @class */ (function () {
         dropClass: [{ type: Input, args: ["dropClass",] }],
         dropPlaceholder: [{ type: Input, args: ["dropPlaceholder",] }],
         removeOnDropOut: [{ type: Input, args: ["removeOnDropOut",] }],
+        disableScrollOverlapDetection: [{ type: Input, args: ["disableScrollOverlapDetection",] }],
         dragStart: [{ type: Output }],
         dragEnd: [{ type: Output }],
         drop: [{ type: Output }],
@@ -228,4 +231,4 @@ var NgxSmoothDnDModule = /** @class */ (function () {
 
 export { NgxSmoothDnDModule, ContainerComponent, DraggableComponent };
 
-//# sourceMappingURL=ngx-smooth-dnd.js.map
+//# sourceMappingURL=yousource-ngx-smooth-dnd.js.map

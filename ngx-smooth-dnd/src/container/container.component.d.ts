@@ -1,6 +1,6 @@
 import { QueryList, ElementRef, AfterViewInit, OnDestroy, EventEmitter, NgZone } from '@angular/core';
 import { DraggableComponent } from '../draggable/draggable.component';
-import { DropResult, ContainerOptions } from 'smooth-dnd';
+import { DropResult, ContainerOptions } from '@yousource/smooth-dnd';
 export interface DragStartEndInfo {
     isSource: boolean;
     payload: any;
@@ -24,6 +24,7 @@ export declare class ContainerComponent implements AfterViewInit, OnDestroy {
     dropClass: any;
     dropPlaceholder: any;
     removeOnDropOut: any;
+    disableScrollOverlapDetection: any;
     dragStart: EventEmitter<DragStartEndInfo>;
     dragEnd: EventEmitter<DragStartEndInfo>;
     drop: EventEmitter<DropResult>;

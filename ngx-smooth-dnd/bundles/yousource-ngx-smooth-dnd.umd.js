@@ -1,7 +1,7 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('smooth-dnd')) :
-    typeof define === 'function' && define.amd ? define('ngx-smooth-dnd', ['exports', '@angular/common', '@angular/core', 'smooth-dnd'], factory) :
-    (factory((global['ngx-smooth-dnd'] = {}),global.ng.common,global.ng.core,global.SmoothDnD));
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('@yousource/smooth-dnd')) :
+    typeof define === 'function' && define.amd ? define('@yousource/ngx-smooth-dnd', ['exports', '@angular/common', '@angular/core', '@yousource/smooth-dnd'], factory) :
+    (factory((global.yousource = global.yousource || {}, global.yousource['ngx-smooth-dnd'] = {}),global.ng.common,global.ng.core,global.smoothDnd));
 }(this, (function (exports,common,core,smoothDnd) { 'use strict';
 
     var smoothDnd__default = 'default' in smoothDnd ? smoothDnd['default'] : smoothDnd;
@@ -108,6 +108,8 @@
                     options.dropClass = this.dropClass;
                 if (this.dropPlaceholder)
                     options.dropPlaceholder = this.dropPlaceholder;
+                if (this.disableScrollOverlapDetection)
+                    options.disableScrollOverlapDetection = this.disableScrollOverlapDetection;
                 if (this.dragStart)
                     options.onDragStart = function (info) {
                         _this.getNgZone(function () {
@@ -190,6 +192,7 @@
             dropClass: [{ type: core.Input, args: ["dropClass",] }],
             dropPlaceholder: [{ type: core.Input, args: ["dropPlaceholder",] }],
             removeOnDropOut: [{ type: core.Input, args: ["removeOnDropOut",] }],
+            disableScrollOverlapDetection: [{ type: core.Input, args: ["disableScrollOverlapDetection",] }],
             dragStart: [{ type: core.Output }],
             dragEnd: [{ type: core.Output }],
             drop: [{ type: core.Output }],
@@ -242,4 +245,4 @@
 
 })));
 
-//# sourceMappingURL=ngx-smooth-dnd.umd.js.map
+//# sourceMappingURL=yousource-ngx-smooth-dnd.umd.js.map
