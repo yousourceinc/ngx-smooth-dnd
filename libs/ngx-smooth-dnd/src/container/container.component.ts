@@ -1,6 +1,6 @@
 import { Component, ContentChildren, QueryList, AfterContentInit, ViewChild, ElementRef, AfterViewInit, Input, OnDestroy, OnInit, Output, EventEmitter, NgZone } from '@angular/core';
 import { DraggableComponent } from '../draggable/draggable.component';
-import { dropHandlers, smoothDnD, DropResult, ContainerOptions } from 'smooth-dnd';
+import { dropHandlers, smoothDnD, DropResult, ContainerOptions } from '@yousource/smooth-dnd';
 
 smoothDnD.dropHandler = dropHandlers.reactDropHandler().handler;
 smoothDnD.wrapChild = false;
@@ -35,6 +35,8 @@ export class ContainerComponent implements AfterViewInit, OnDestroy {
   @Input("dropClass") dropClass;
   @Input("dropPlaceholder") dropPlaceholder;
   @Input("removeOnDropOut") removeOnDropOut;
+  @Input("disableScrollOverlapDetection") disableScrollOverlapDetection;
+  @Input("useTransformForGhost") useTransformForGhost;
 
   @Output() dragStart = new EventEmitter<DragStartEndInfo>();
   @Output() dragEnd = new EventEmitter<DragStartEndInfo>();
@@ -64,6 +66,8 @@ export class ContainerComponent implements AfterViewInit, OnDestroy {
       this.containerElementRef.nativeElement,
       this.getOptions()
     );
+
+    if(this.useTransformForGhost) this.container.useTransformForGhost = this.useTransformForGhost;
   }
   ngOnDestroy(): void {
     this.container.dispose();
@@ -87,7 +91,7 @@ export class ContainerComponent implements AfterViewInit, OnDestroy {
     if (this.dragClass) options.dragClass = this.dragClass;
     if (this.dropClass) options.dropClass = this.dropClass;
     if (this.dropPlaceholder) options.dropPlaceholder = this.dropPlaceholder;
-
+    if (this.disableScrollOverlapDetection) options.disableScrollOverlapDetection = this.disableScrollOverlapDetection;
     if (this.dragStart)
       options.onDragStart = (info: DragStartEndInfo) => {
         this.getNgZone(() => {

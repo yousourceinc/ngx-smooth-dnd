@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { constants } from 'smooth-dnd';
+import { constants } from '@yousource/smooth-dnd';
 const {
   wrapperClass,
   animationClass

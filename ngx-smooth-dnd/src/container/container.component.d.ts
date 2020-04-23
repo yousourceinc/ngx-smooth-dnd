@@ -25,6 +25,7 @@ export declare class ContainerComponent implements AfterViewInit, OnDestroy {
     dropPlaceholder: any;
     removeOnDropOut: any;
     disableScrollOverlapDetection: any;
+    useTransformForGhost: any;
     dragStart: EventEmitter<DragStartEndInfo>;
     dragEnd: EventEmitter<DragStartEndInfo>;
     drop: EventEmitter<DropResult>;
