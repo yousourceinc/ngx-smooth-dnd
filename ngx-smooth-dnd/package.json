@@ -1,10 +1,10 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
   "name": "@yousource/ngx-smooth-dnd",
-  "version": "1.1.2",
+  "version": "1.1.8",
   "license": "MIT",
   "dependencies": {
-    "@yousource/smooth-dnd": "1.0.2",
+    "@yousource/smooth-dnd": "1.0.8",
     "tslib": "^1.9.0"
   },
   "main": "bundles/yousource-ngx-smooth-dnd.umd.js",
